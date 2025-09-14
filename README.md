@@ -1,6 +1,6 @@
-# 🍕 Pizzatoons  
+# 🍕 PizzaToons  
 
-Pizzatoons is a web-based pizza ordering and sales system that provides a seamless and user-friendly experience for customers and admins.  
+PizzaToons is a web-based pizza ordering and sales system that provides a seamless and user-friendly experience for customers and admins.  
 It is built using **Java, JSP, Servlets, JDBC, and Maven**, and deployed on **Apache Tomcat**.  
 
 ---
