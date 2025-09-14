@@ -1,23 +1,25 @@
-# IDE
+# Ignore IDE settings
 .idea/
-.vscode/
+.metadata/
+.settings/
 *.iml
+.classpath
+.project
 
 # Build folders
 bin/
-out/
 target/
-
-# OS
-.DS_Store
-Thumbs.db
+out/
 
 # Logs
 *.log
 
-# Compiled files
-*.class
+# OS files
+.DS_Store
+Thumbs.db
 
-# Others
-*.jar
+# Maven
 *.war
+*.jar
+
+
