@@ -57,19 +57,21 @@ public class OrderServlet extends HttpServlet {
 				Orders o = null;
 				ArrayList<Orders> orderList = new ArrayList<Orders>();
 
-				for (Cart c : plist) {
-					o = new Orders();
-					o.setUserId(c.getUserId());
-					o.setProductId(c.getProductId());
-					o.setQuantity(c.getQuantity());
-					o.setTotalAmount(c.getGrandTotal());
-					o.setPaymentType(paymentType);
-					o.setStatus("Pending");
-					o.setOrderDate(new Timestamp(System.currentTimeMillis()));
-					orderList.add(o);
-				}
+                for (Cart c : plist) {
+                    o = new Orders();
+                    o.setUserId(c.getUserId());
+                    o.setProductId(c.getProductId());
+                    o.setQuantity(c.getQuantity());
+                    o.setPrice(c.getPrice());
+                    o.setPaymentType(paymentType);
+                    o.setStatus("Pending");
+                    o.setOrderDate(new Timestamp(System.currentTimeMillis()));
+                    o.setFullAddress(fulladdress);
+                    orderList.add(o);
+                }
 
-				// Check if payment type is selected
+
+                // Check if payment type is selected
 				if ("noselect".equals(paymentType)) {
 					session.setAttribute("Msg", "Please Select Payment Type");
 					resp.sendRedirect("checkout.jsp");

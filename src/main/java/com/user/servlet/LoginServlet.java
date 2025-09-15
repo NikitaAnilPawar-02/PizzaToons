@@ -27,29 +27,29 @@ public class LoginServlet extends HttpServlet {
 			String password = req.getParameter("password");
 			String hashedPassword = hashPassword(password);
 
-			if ("admin@gmail.com".equals(email) && "admin".equals(password)) {
-				User us = new User();
-				us.setName("Admin");
-				session.setAttribute("userobj", us);
-				resp.sendRedirect("admin/home.jsp");
-			} else {
-				User us = dao.login(email, hashedPassword);
-				if (us != null) {
-					session.setAttribute("userobj", us);
-					resp.sendRedirect("index.jsp");
-				} else {
-					session.setAttribute("loginStatus",
-							"Email & Password Invalid !");
-					resp.sendRedirect("login.jsp");
-					return;
-				}
-				resp.sendRedirect("index.jsp");
-			}
+            // Admin Login
+            if ("admin@gmail.com".equals(email) && "admin".equals(password)) {
+                User us = new User();
+                us.setName("Admin");
+                session.setAttribute("userobj", us);
+                resp.sendRedirect("admin/home.jsp");
+                return;
+            }
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+            // Normal User Login
+            User us = dao.login(email, hashedPassword);
+            if (us != null) {
+                session.setAttribute("userobj", us);
+                resp.sendRedirect("index.jsp");
+            } else {
+                session.setAttribute("loginStatus", "Email & Password Invalid !");
+                resp.sendRedirect("login.jsp");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
 	private String hashPassword(String password) {
 		try {

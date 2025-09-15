@@ -38,9 +38,9 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"
 							data-bs-dismiss="modal">Cancel</button>
-						<form action="/PizzaSalesSystem/LogoutServlet" method="post">
-							<button type="submit" class="btn btn-danger">Logout</button>
-						</form>
+                        <form action="<%= request.getContextPath() %>/LogoutServlet" method="post">
+                            <button type="submit" class="btn btn-danger">Logout</button>
+                        </form>
 					</div>
 				</div>
 			</div>
@@ -49,14 +49,15 @@
 			<%
 			} else {
 			%>
-			<a href="/PizzaSalesSystem/login.jsp"
-				class="btn btn-primary me-2 fw-bolder"><i
-				class="fa-solid fa-right-to-bracket"></i> Login</a> <a
-				href="/PizzaSalesSystem/register.jsp"
-				class="btn btn-success fw-bolder"><i
-				class="fa-solid fa-user-plus"></i> Register</a>
+            <a href="<%= request.getContextPath() %>/login.jsp" class="btn btn-primary me-2 fw-bolder">
+                <i class="fa-solid fa-right-to-bracket"></i> Login
+            </a>
+            <a href="<%= request.getContextPath() %>/register.jsp" class="btn btn-success fw-bolder">
+                <i class="fa-solid fa-user-plus"></i> Register
+            </a>
 
-			<%
+
+            <%
 			}
 			%>
 		</div>

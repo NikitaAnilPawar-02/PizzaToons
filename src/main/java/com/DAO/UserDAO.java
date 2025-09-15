@@ -13,9 +13,9 @@ public interface UserDAO {
 
 	public boolean updateProfile(User us);
 
-	public User getUserById(int userId);
+    public User getUserById(int userId);
 
-	public User getUserDetailsByOrderId(String orderId);
+	public User getUserDetailsByOrderId(int orderId);
 
 	public List<User> getAllUsers();
 }
